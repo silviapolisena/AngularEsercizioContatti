@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CardComponent } from './shared/components/card/card.component';
+import { AllcontactsComponent } from './features/allcontacts/allcontacts.component';
+import { FavoritecontactsComponent } from './features/favoritecontacts/favoritecontacts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent,
+    AllcontactsComponent,
+    FavoritecontactsComponent
   ],
   imports: [
     BrowserModule,
