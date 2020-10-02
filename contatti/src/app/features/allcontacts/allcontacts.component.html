@@ -1,0 +1,13 @@
+<!-- Lista di tutti i contatti -->
+<app-card title="All Contact">
+  <div *ngFor="let contact of contacts">
+    {{contact.name}} {{contact.surname}}
+      <li class="list-group-item" 
+      (click)="setActive(contact)" 
+      [ngClass]="{'active': contact.id === active?.id}">
+        <span [ngClass]="{'glyphicon glyphicon-star': contact.favorite == true}">
+        </span>
+        {{contact.phoneNumber}}
+      </li>
+  </div>
+</app-card>
