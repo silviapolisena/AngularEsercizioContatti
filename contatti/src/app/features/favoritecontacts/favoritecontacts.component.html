@@ -1,1 +1,14 @@
-<p>favoritecontacts works!</p>
+
+<app-card title="Favorite Contacts">
+    <div *ngFor="let contact of contacts" [routerLink]="['/contactdetails', contact.id]">
+     <div *ngIf="contact.favorite == true">
+      {{contact.name}} {{contact.surname}}
+      <li class="list-group-item">
+        <span class="fa fa-star">
+        </span>
+        {{contact.phoneNumber}}
+      </li>
+    </div>
+   </div>
+  </app-card>
+  

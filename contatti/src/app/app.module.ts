@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { AllcontactsComponent } from './features/allcontacts/allcontacts.component';
 import { FavoritecontactsComponent } from './features/favoritecontacts/favoritecontacts.component';
+import { ContactdetailsComponent } from './features/contactdetails/contactdetails.component';
+import { OthercontactsComponent } from './features/contactdetails/othercontacts/othercontacts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     AllcontactsComponent,
-    FavoritecontactsComponent
+    FavoritecontactsComponent,
+    ContactdetailsComponent,
+    OthercontactsComponent
   ],
   imports: [
     BrowserModule,

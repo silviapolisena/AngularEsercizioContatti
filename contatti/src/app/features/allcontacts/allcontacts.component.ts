@@ -20,11 +20,6 @@ export class AllcontactsComponent {
     {id: 5, name: 'Marco', surname: 'Venezia', phoneNumber: '3289876541',
     birthDate: '23/04/1989', favorite: false}]
 
-    active: Contact;
-    setActive(contact: Contact){
-      this.active = contact;
-      console.log('active');
-    }
 }
 
 

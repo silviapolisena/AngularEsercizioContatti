@@ -1,0 +1,17 @@
+<app-card title="Contact Details">
+  <div *ngFor="let contact of contacts">
+    <div *ngIf="contact.id == contactdetailsid">
+      <h4>
+        <img src="./assets/contact.png">
+        {{contact.name}} {{contact.surname}}
+        <p [ngClass]="{'fa fa-star': contact.favorite == true }"></p>
+      </h4>
+      <li class="list-group-item">
+        <h5>About {{contact.name}}:</h5>
+        <p> Birth Date: {{contact.birthDate}}</p>
+        <p> Phone: {{contact.phoneNumber}}</p>
+        <app-othercontacts></app-othercontacts>
+      </li>
+    </div>
+  </div>
+</app-card>
