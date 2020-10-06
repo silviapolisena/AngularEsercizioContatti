@@ -1,11 +1,5 @@
-
-<app-card title="All Contact">
-  <div *ngFor="let contact of contacts" [routerLink]="['/contactdetails', contact.id]">
-    {{contact.name}} {{contact.surname}}
-    <li class="list-group-item">
-      <span [ngClass]="{'fa fa-star': contact.favorite == true}">
-      </span>
-      {{contact.phoneNumber}}
-    </li>
-  </div>
-</app-card>
+<div *ngFor="let contact of contacts">
+  <app-card [contact]="contact">
+    
+  </app-card>  
+</div>

@@ -1,0 +1,29 @@
+<div class="card-header"></div>
+<div class="card bg-dark text-white mb-1">
+  <div class="card-body">
+    <h4>
+      <img src="./assets/contact.png">
+      {{contact.name}} {{contact.surname}}
+      <p [ngClass]="{'fa fa-star': contact.favorite == true }"></p>
+    </h4>
+    <li class="list-group-item">
+      <h5>About {{contact.name}}:</h5>
+      <p> Birth Date: {{contact.birthDate}}</p>
+      <p> Phone: {{contact.phoneNumber}}</p>
+      <div>
+        Other Contacts:
+        <div>
+          <button name="facebook" class="btn btn-social-icon btn-facebook" 
+          (click)="navigateTo('facebook')">
+            <span class="fa fa-facebook"></span></button>
+          <button name="instagram" class="btn btn-social-icon btn-instagram" 
+          (click)="navigateTo('instagram')">
+            <span class="fa fa-instagram"></span></button>
+          <button name="twitter" class="btn btn-social-icon btn-twitter"
+          (click)="navigateTo('twitter')">
+            <span class="fa fa-twitter"></span></button>
+        </div>
+      </div>
+    </li>
+  </div>
+</div>

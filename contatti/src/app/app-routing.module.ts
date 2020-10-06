@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: 'favoritecontacts', component: FavoritecontactsComponent},
   {path: 'contactdetails/:id', component: ContactdetailsComponent},
   {path: '**', redirectTo: 'allcontacts'},
-
 ];
 
 @NgModule({

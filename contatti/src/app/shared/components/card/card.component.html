@@ -1,8 +1,33 @@
 <div>
- <div class="card-header">{{title}}</div>
+  <div class="card-header"></div>
   <div class="card bg-dark text-white mb-1">
     <div class="card-body">
-      <ng-content></ng-content>
+      <div [routerLink]="['/contactdetails', contact.id]">
+        {{contact.name}} {{contact.surname}}
+        <li class="list-group-item">
+          <span [ngClass]="{'fa fa-star': contact.favorite == true}">
+          </span>
+          {{contact.phoneNumber}}
+        </li>
+        <hr>
+
+        <form [formGroup]="reactiveForm">
+            <label for="name">Name: </label>
+            <input type="text" formControlName="name" class="form-control">
+          
+            <label for="surname">Surname: </label>
+            <input type="text" formControlName="surname" class="form-control">
+    
+            <label for="phoneNumber">Phone: </label>
+            <input type="text" formControlName="phoneNumber" class="form-control">
+          <hr>
+          <div>
+          <button type="submit" class="btn btn-primary">EDIT</button>
+          <hr>
+          <button type="button" class="btn btn-primary">DELETE</button>
+          </div>
+        </form>
+
+      </div>
     </div>
   </div>
-</div>
