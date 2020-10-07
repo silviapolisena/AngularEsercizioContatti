@@ -2,32 +2,36 @@
   <div class="card-header"></div>
   <div class="card bg-dark text-white mb-1">
     <div class="card-body">
-      <div [routerLink]="['/contactdetails', contact.id]">
-        {{contact.name}} {{contact.surname}}
-        <li class="list-group-item">
-          <span [ngClass]="{'fa fa-star': contact.favorite == true}">
-          </span>
-          {{contact.phoneNumber}}
-        </li>
-        <hr>
-
-        <form [formGroup]="reactiveForm">
-            <label for="name">Name: </label>
-            <input type="text" formControlName="name" class="form-control">
-          
-            <label for="surname">Surname: </label>
-            <input type="text" formControlName="surname" class="form-control">
+      {{contact.name}} {{contact.surname}}
+      <li class="list-group-item">
+        <span [ngClass]="{'fa fa-star': contact.favorite == true}">
+        </span>
+        {{contact.phoneNumber}}
+      </li>
+      <hr>
     
-            <label for="phoneNumber">Phone: </label>
-            <input type="text" formControlName="phoneNumber" class="form-control">
+
+      <div *ngIf="opened">
+        <form [formGroup]="reactiveForm">
+          <label for="name">Name: </label>
+          <input type="text" formControlName="name" class="form-control">
+
+          <label for="surname">Surname: </label>
+          <input type="text" formControlName="surname" class="form-control">
+
+          <label for="phoneNumber">Phone: </label>
+          <input type="text" formControlName="phoneNumber" class="form-control">
           <hr>
-          <div>
-          <button type="submit" class="btn btn-primary">EDIT</button>
-          <hr>
-          <button type="button" class="btn btn-primary">DELETE</button>
-          </div>
         </form>
+      </div>
+
+      <div class="pull-right">
+      <i [routerLink]="['/contactdetails', contact.id]" class="fa fa-search"></i>
+      <i (click)="editContact(contact)" class="fa fa-edit"></i>
+      <i (click)="saveContact(contact)" class="fa fa-save"></i>
+      <i (click)="deleteContact(contact)" class="fa fa-trash"></i>
 
       </div>
     </div>
   </div>
+</div>

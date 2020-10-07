@@ -15,6 +15,24 @@ export class AllcontactsComponent {
     this.contacts = this.service.getContacts();
   }
 
+edit(contact: Contact){
+  console.log('edit');
+ //const index = this.contacts.findIndex(c => c.id === contact.id);
+ //this.contacts[index] = contact;
+ 
+}
+
+delete(contact: Contact){
+  console.log('delete', contact);
+  const index = this.contacts.indexOf(contact);
+  this.contacts.splice(index, 1);
+}
+
+save(contact: Contact){
+  console.log('save', contact);
+  /*const index = this.contacts.findIndex(c => c.id === contact.id);
+  this.contacts[index] = contact;*/
+}
 }
 
 

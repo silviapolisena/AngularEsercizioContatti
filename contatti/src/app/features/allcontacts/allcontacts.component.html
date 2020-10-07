@@ -1,5 +1,6 @@
 <div *ngFor="let contact of contacts">
-  <app-card [contact]="contact">
-    
+  <app-card [contact]="contact" (edit)="edit($event)" 
+  (delete)="delete($event)"
+  (save)="save($event)">
   </app-card>  
 </div>
