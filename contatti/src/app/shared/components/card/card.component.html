@@ -6,30 +6,62 @@
       <li class="list-group-item">
         <span [ngClass]="{'fa fa-star': contact.favorite == true}">
         </span>
-        {{contact.phoneNumber}}
+        {{contact.phoneNumber}} 
+        <hr>
+        {{contact.email}}
       </li>
+      
       <hr>
     
 
       <div *ngIf="opened">
         <form [formGroup]="reactiveForm">
+          
+          <div>
           <label for="name">Name: </label>
-          <input type="text" formControlName="name" class="form-control">
+          <input type="text" formControlName="name" class="form-control" placeholder="Enter name" />
+          <i *ngIf="contact.name.length >= 2" class="fa fa-check"></i> 
+          <div *ngIf="contact.name.length < 2" class="errors"> Name must be at least 2 characters long</div>
+          </div>
 
+          <div>
           <label for="surname">Surname: </label>
-          <input type="text" formControlName="surname" class="form-control">
+          <input type="text" formControlName="surname" class="form-control" placeholder="Enter surname">
+          <i *ngIf="contact.surname.length >= 2" class="fa fa-check"></i> 
+          <div *ngIf="contact.surname.length < 2"class="errors" > Surname must be at least 2 characters long</div>
+          </div>
 
+          <div>
           <label for="phoneNumber">Phone: </label>
-          <input type="text" formControlName="phoneNumber" class="form-control">
+          <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Enter phone">
+          <i *ngIf="contact.phoneNumber.length == 10" class="fa fa-check"></i> 
+          <div *ngIf="contact.phoneNumber.length < 10" class="errors"> Phone must be at least 10 numbers long</div>
+          </div>
+
+          <div>
+          <label for="email">Email: </label>
+          <input type="text" formControlName="email" class="form-control" placeholder="Enter email">
+          <i *ngIf="contact.email.status == 'VALID'" class="fa fa-check"></i> 
+          <div *ngIf="contact.email.status == 'INVALID'" class="errors"> Email invalid </div>
+          </div>
+
+          <p>
+            Form Status: {{reactiveForm.status}}
+            <i *ngIf="!reactiveForm.invalid" class="fa fa-check"></i>
+          </p>
+       
           <hr>
+         
         </form>
       </div>
 
       <div class="pull-right">
-      <i [routerLink]="['/contactdetails', contact.id]" class="fa fa-search"></i>
-      <i (click)="editContact(contact)" class="fa fa-edit"></i>
-      <i (click)="saveContact(contact)" class="fa fa-save"></i>
-      <i (click)="deleteContact(contact)" class="fa fa-trash"></i>
+      <i [routerLink]="['/contactdetails', contact.id]" class="fa fa-search cursor"></i>
+      <i class="fa fa-edit disable-icon" *ngIf="reactiveForm.invalid"></i>
+      <i (click)="editContact(contact)" class="fa fa-edit cursor" *ngIf="!reactiveForm.invalid"></i>
+      <i class="fa fa-save disable-icon" *ngIf="reactiveForm.invalid"></i>
+      <i (click)="saveContact(contact)" class="fa fa-save cursor" *ngIf="!reactiveForm.invalid"></i>
+      <i (click)="deleteContact(contact)" class="fa fa-trash cursor"></i>
 
       </div>
     </div>

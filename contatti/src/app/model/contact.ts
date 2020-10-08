@@ -3,6 +3,7 @@ export class Contact{
     name: string;
     surname: string;
     phoneNumber: string;
+    email: string;
     birthDate: string;
     favorite: boolean;
 }

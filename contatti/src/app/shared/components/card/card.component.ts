@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Contact } from 'src/app/model/contact';
 import { Service } from 'src/app/service/service';
 
@@ -31,10 +31,11 @@ ngOnInit(){
 
 createForm(){
    this.reactiveForm = new FormGroup({
-    name: new FormControl(this.contact.name),
-    surname: new FormControl(this.contact.surname),
-    phoneNumber: new FormControl(this.contact.phoneNumber),
-  });
+    name: new FormControl(this.contact.name, [Validators.minLength(2), Validators.required]),
+    surname: new FormControl(this.contact.surname, [Validators.minLength(2), Validators.required]),
+    phoneNumber: new FormControl(this.contact.phoneNumber, [Validators.minLength(10), Validators.required]),
+    email: new FormControl(this.contact.email, [Validators.email, Validators.required])
+  }); 
 }
 
 setFormValue(){
