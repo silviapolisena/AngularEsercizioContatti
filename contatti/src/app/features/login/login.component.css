@@ -1,0 +1,60 @@
+.errors{
+    color: tomato;
+}
+
+img{
+    width: 200px;
+    top:50%;
+    margin-bottom: 30px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    margin: 50px;
+
+}
+  
+.wrapper.centered {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 90vh;
+  }
+
+.wrapper.centered > .vh-centered {
+    grid-row: 2/2;
+    grid-column: 2/2;
+  }
+
+input {
+    border-radius: 50px;
+    width: 100%; 
+    padding: 10px; 
+    text-align: center
+}
+.input-icons i { 
+    position: absolute; 
+} 
+  
+.icon { 
+    padding: 10px; 
+    color:black; 
+    min-width: 50px; 
+    text-align: center; 
+} 
+
+.register{
+    color: lightskyblue;
+   text-align:center ;
+}
+
+.message{
+    text-align: center;
+}
+
+  
