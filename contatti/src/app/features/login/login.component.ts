@@ -10,6 +10,7 @@ import {
 import {
   Router
 } from '@angular/router';
+import { AppService } from 'src/app/service/app.service';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +25,11 @@ export class LoginComponent implements OnInit {
 
   counter = 0;
 
+  isLoggedIn = this.app.loggedIn;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private app: AppService) {
+  
+  }
 
   ngOnInit(): void {
     this.createForm();
@@ -45,12 +49,20 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = true;
       console.log(this.counter++);
       console.log('invalid username or password');
+      this.app.loggedIn.next(false);
+
     } else if (this.formLogin.get('username').value === 'silvia' &&
       (this.formLogin.get('password').value === '123')) {
       this.invalidLogin = false;
       this.router.navigateByUrl('allcontacts');
       console.log('login');
+      this.app.loggedIn.next(true);
     }
+  }
+
+   logout() {                            // {4}
+    this.app.loggedIn.next(false);
+    this.router.navigateByUrl('/login');
   }
 
 }
