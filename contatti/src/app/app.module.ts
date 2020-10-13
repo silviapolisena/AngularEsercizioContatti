@@ -11,6 +11,7 @@ import { CarddetailsComponent } from './shared/carddetails/carddetails.component
 import { Service } from './service/service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/login/login.component';
+import { RegisterComponent } from './features/register/register.component';
 
 
 
@@ -23,6 +24,7 @@ import { LoginComponent } from './features/login/login.component';
     ContactdetailsComponent,
     CarddetailsComponent,
     LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
