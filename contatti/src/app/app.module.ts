@@ -32,7 +32,7 @@ import { RegisterComponent } from './features/register/register.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [Service],
+  providers: [Service, LoginComponent, RegisterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
