@@ -1,29 +1,24 @@
-
-<nav class="navbar navbar-expand navbar-dark bg-dark text-white" *ngIf="isLoggedIn$ | async">
-    <a class="navbar-brand">CONTACTS</a>
-    <div class="navbar-collapse collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link"
-           [routerLink]="['/allcontacts']" routerLinkActive="router-link-active" 
-            routerLinkActive="active">All Contacts</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" 
-             [routerLink]="['/favoritecontacts']" routerLinkActive="router-link-active">
-             Favorite Contacts</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" 
-             (click)="logout()">
-            LOGOUT</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand navbar-dark bg-dark text-white" *ngIf="(isLoggedInLogin$ || isLoggedInRegister$) | async">
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/allcontacts']" routerLinkActive="router-link-active"
+          routerLinkActive="active">All Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/favoritecontacts']" routerLinkActive="router-link-active">
+          Favorite Contacts</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          LOGOUT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

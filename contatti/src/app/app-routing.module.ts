@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'contactdetails/:id', component: ContactdetailsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '**', redirectTo: 'allcontacts'},
+  {path: '**', redirectTo: 'login'},
 ];
 
 @NgModule({

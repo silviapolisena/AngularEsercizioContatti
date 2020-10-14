@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-   logout() {                            // {4}
+   logout() {
     this.app.loggedIn.next(false);
     this.router.navigateByUrl('/login');
   }
