@@ -7,11 +7,15 @@ import { CardComponent } from './shared/components/card/card.component';
 import { AllcontactsComponent } from './features/allcontacts/allcontacts.component';
 import { FavoritecontactsComponent } from './features/favoritecontacts/favoritecontacts.component';
 import { ContactdetailsComponent } from './features/contactdetails/contactdetails.component';
-import { CarddetailsComponent } from './shared/carddetails/carddetails.component';
+import { CarddetailsComponent } from './shared/components/carddetails/carddetails.component';
 import { Service } from './service/service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactService } from './service/contact.service';
+import { FormComponent } from './shared/components/form/form.component';
+
 
 
 
@@ -25,14 +29,16 @@ import { RegisterComponent } from './features/register/register.component';
     CarddetailsComponent,
     LoginComponent,
     RegisterComponent,
+    FormComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [Service, LoginComponent, RegisterComponent],
+  providers: [/*Service*/, LoginComponent, RegisterComponent, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

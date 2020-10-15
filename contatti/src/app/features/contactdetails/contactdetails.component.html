@@ -1,5 +1,5 @@
 
-  <div *ngFor="let contact of contacts">
+  <div *ngFor="let contact of contactService.contacts">
     <div *ngIf="contact.id == contactdetailsid">
     <app-carddetails [contact]="contact" (navigate)="navigate($event)"></app-carddetails>
     </div>

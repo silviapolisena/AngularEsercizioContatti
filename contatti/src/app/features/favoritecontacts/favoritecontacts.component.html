@@ -1,6 +1,8 @@
-<div *ngFor="let contact of contacts">
-  <div *ngIf="contact.favorite == true">
-  <app-card [contact]="contact"></app-card>  
+<app-form></app-form>
+
+<div *ngFor="let contact of contactService.contacts">
+  <div *ngIf="contact.favorite === true">
+  <app-card [contact]="contact" (delete)="contactService.delete($event)"></app-card>  
   </div>
 </div>
 

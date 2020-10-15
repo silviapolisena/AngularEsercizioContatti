@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/model/contact';
-import { Service } from 'src/app/service/service';
+import { ContactService } from 'src/app/service/contact.service';
+//import { Service } from 'src/app/service/service';
 
 
 @Component({
@@ -17,11 +18,12 @@ contactdetailsid: number;
 contacts: Contact[] = [];
 
 // Recuperare l'id del contatto cliccato!
-constructor(private service: Service,
-  activatedRoute : ActivatedRoute){
+constructor(/*private service: Service*/
+  activatedRoute : ActivatedRoute, 
+  public contactService: ContactService){
   // + per traformare una stringa in un number
   this.contactdetailsid = +activatedRoute.snapshot.params['id'];
-  this.contacts = this.service.getContacts();
+ // this.contacts = this.service.getContacts();
 }
 
 
