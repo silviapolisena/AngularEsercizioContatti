@@ -1,8 +1,9 @@
-<app-form></app-form>
+<app-form (add)="contactService.add($event)"></app-form>
 
 <div *ngFor="let contact of contactService.contacts">
-  <app-card [contact]="contact" (edit)="edit($event)" 
-  (delete)="contactService.delete($event)"
-  (save)="save($event)">
+  <app-card [contact]="contact" 
+  (delete)="contactService.delete($event)" 
+  (edit)="contactService.setActive($event)"
+  (saveEdit)="contactService.saveEdit($event)">
   </app-card>  
 </div>

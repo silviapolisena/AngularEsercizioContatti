@@ -14,9 +14,13 @@
     background-color: tomato;
     border: tomato;
   }
-  /*.fa-check{
+  
+  .fa-check{
     color: lightgreen;
     position: absolute;
-  }*/
+  }
 
+  .checkbox{
+    margin-left: 10px;
+  }
   

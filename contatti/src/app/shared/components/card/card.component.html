@@ -10,15 +10,15 @@
         <hr>
         {{contact.email}}
       </li>
-      
+      <pre>{{active | json }}</pre>
       <hr>
       <div *ngIf="opened">
-        <form [formGroup]="reactiveForm">
+        <form [formGroup]="reactiveForm" (ngSubmit)="submit()">
           
           <div>
           <label for="name">Name: </label>
           <input type="text" formControlName="name" class="form-control" placeholder="Enter name" />
-          <i *ngIf="contact.name.length >= 2" class="fa fa-check"></i> 
+          <i *ngIf="contact.name.length >= 2" class="fa fa-check"></i>
           <div *ngIf="contact.name.length < 2" class="errors"> Name must be at least 2 characters long</div>
           </div>
 
@@ -43,13 +43,26 @@
           <div *ngIf="contact.email.status == 'INVALID'" class="errors"> Email invalid </div>
           </div>
 
+          <div>
+            <label for="birthDate">Birth Date: </label>
+            <input type="text" formControlName="birthDate" class="form-control" placeholder="Enter birth date" />
+            <i *ngIf="contact.birthDate.length == 10" class="fa fa-check"></i>
+            <div *ngIf="contact.birthDate.length < 10" class="errors"> Respect this format:
+              dd/mm/yyyy </div>
+          </div>
+
+          <div>
+            <label for="favorite">Favorite contact? </label>
+            <input type="checkbox" formControlName="favorite" value="true" class="checkbox"/>
+         </div>
+  
           <p>
             Form Status: {{reactiveForm.status}}
             <i *ngIf="!reactiveForm.invalid" class="fa fa-check"></i>
           </p>
        
           <hr>
-         
+          <button type="submit" class="btn btn-info form-control" [disabled]="reactiveForm.invalid">SEND</button>
         </form>
       </div>
 
@@ -58,7 +71,8 @@
       <i class="fa fa-edit disable-icon" *ngIf="reactiveForm.invalid"></i>
       <i (click)="editContact(contact)" class="fa fa-edit cursor" *ngIf="!reactiveForm.invalid"></i>
       <i class="fa fa-save disable-icon" *ngIf="reactiveForm.invalid"></i>
-      <i (click)="saveContact(contact)" class="fa fa-save cursor" *ngIf="!reactiveForm.invalid"></i>
+      <i (click)="saveContact()" class="fa fa-save cursor" *ngIf="!reactiveForm.invalid"></i>
+      <!--<i type="submit" class="fa fa-save cursor" *ngIf="!reactiveForm.invalid"></i>-->
       <i (click)="deleteContact(contact)" class="fa fa-trash cursor"></i>
 
       </div>

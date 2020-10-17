@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Contact } from 'src/app/model/contact';
 
 @Component({
   selector: 'app-form',
@@ -7,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+ @Output() add: EventEmitter<Contact> = new EventEmitter();
 
   addContactForm: FormGroup;
 
@@ -21,11 +23,14 @@ export class FormComponent implements OnInit {
       name: new FormControl('', [Validators.minLength(2), Validators.required]),
       surname: new FormControl('', [Validators.minLength(2), Validators.required]),
       phoneNumber: new FormControl('', [Validators.minLength(10), Validators.required]),
-      email: new FormControl('', [Validators.email, Validators.required])
+      email: new FormControl('', [Validators.email, Validators.required]),
+      birthDate: new FormControl('', [Validators.minLength(10), Validators.required]),
+      favorite: new FormControl()
     });
   }
 
-  submit(){
-    
+  submit(addContactForm: FormGroup){
+    this.add.emit(addContactForm.value);
+    addContactForm.reset();
   }
 }

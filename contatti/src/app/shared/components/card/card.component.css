@@ -38,4 +38,13 @@ i {
     position: absolute;
   }
 
+  .checkbox{
+    margin-left: 10px;
+  }
+
+  .btn {
+    background-color: tomato;
+    border: tomato;
+    margin-bottom: 10px;
+  }
   
