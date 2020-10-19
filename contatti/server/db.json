@@ -60,7 +60,7 @@
       "phoneNumber": "1234567887",
       "email": "giacomobianchi@gmail.com",
       "birthDate": "23/09/2000",
-      "favorite": null,
+      "favorite": false,
       "id": 16
     },
     {
